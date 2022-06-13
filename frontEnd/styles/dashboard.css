@@ -1,0 +1,127 @@
+@import "./reset.css";
+@import "./root.css";
+
+body {
+  display: flex;
+  height: 100vh;
+}
+.flex {
+  display: flex;
+}
+
+.main {
+  width: 100%;
+}
+
+.side-bar {
+  width: 250px;
+  background-color: #1e1e2d;
+  flex-direction: column;
+}
+.side-bar_img {
+  background-size: cover;
+  height: 90px;
+  width: 90px;
+  border-radius: 10%;
+  margin: 50px;
+}
+.side-bar_title {
+  color: #4c4e6f;
+
+  margin: 0 auto 0 30px;
+}
+
+.main-container {
+  flex-direction: column;
+  width: 100%;
+}
+.main-container_header {
+  height: 40px;
+  width: fit-content;
+  background-color: var(--primary-color);
+  align-items: center;
+  margin-left: 30px;
+}
+.main-container_card {
+  height: 100%;
+  width: 100%;
+  background-color: var(--third-color);
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  height: fit-content;
+  width: 350px;
+  min-width: 350px;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  margin: 20px;
+  padding: 15px;
+  flex-direction: column;
+}
+.card_item {
+  flex-direction: column;
+  padding: 5px 0;
+}
+.item_p {
+  font-weight: 300;
+  font-size: medium;
+  color: var(--low-propertie);
+}
+.item_titre {
+  flex-direction: column;
+  text-decoration: none;
+  padding: 5px 0;
+}
+.item_titre_h2 {
+  color: var(--low-propertie);
+}
+.item-display {
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0 0 0;
+}
+
+.toggle {
+  width: 50px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 25px;
+  padding: 0 2px;
+  transition: all 200ms;
+  position: relative;
+}
+
+.toggle.active {
+  background-color: #069ef7;
+}
+
+.slider {
+  width: 16px;
+  height: 16px;
+  border-radius: 25px;
+  background-color: #fff;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: auto;
+  transition: all 200ms;
+}
+
+.slider.active {
+  left: auto;
+  right: 2px;
+  transition: all 200ms;
+}
+
+.item-titre_input {
+  border: none;
+  outline: none;
+  border-bottom: solid 1px #f0f0f3;
+  transition: all 300ms;
+}
+
+.item-titre_input:focus {
+  border-bottom: solid 1px #069ef7;
+}

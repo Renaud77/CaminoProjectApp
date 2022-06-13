@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/dashboard.css" />
+    <title>Document</title>
+  </head>
+  <body class="flex">
+    <header class="side-bar flex">
+      <img class="side-bar_img" src="/frontEnd/public/img/logo.jpeg" alt="" />
+      <p class="side-bar_title">Dashboard</p>
+    </header>
+    <main class="main-container flex">
+      <section class="main-container_header flex">
+        <p>Panneau de contrôle</p>
+      </section>
+      <section class="main-container_card flex">
+        <article class="card flex">
+          <div class="card_item flex">
+            <h1 class="item_name">Item 1</h1>
+            <p class="item_p">Boîte de gestion</p>
+          </div>
+          <label class="item_titre flex" for="title-input">
+            <h2 class="item_titre_h2">Titre de l'élément</h2>
+            <input class="item-titre_input" type="text" id="title-input" />
+          </label>
+          <label class="item-display flex" for="display-element">
+            <p>Afficher l'élément 1</p>
+            <div class="toggle">
+              <div class="slider"></div>
+            </div>
+            <input
+              type="checkbox"
+              name="display-element"
+              id="display-element"
+              hidden
+            />
+          </label>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
