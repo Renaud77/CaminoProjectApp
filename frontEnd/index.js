@@ -7,7 +7,7 @@ function displayCard() {
       return response.json();
     })
     .then(function (data) {
-      if (data.status == "200") {
+      if (data.status === "200") {
         const result = data.result;
         let display;
         for (const r of result) {
