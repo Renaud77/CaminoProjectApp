@@ -14,5 +14,4 @@ if ((isset($_POST['name']) && in_array($_POST['name'], ['t1', 't2', 't3'])) && (
     // Encode json.
     return json_encode(['status' => 200]);
 }
-
 die('Param does\'t valid');
