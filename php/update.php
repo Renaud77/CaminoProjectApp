@@ -3,10 +3,15 @@
 include './bdd.php';
 
 
-if ((isset($_POST['name']) && in_array($_POST['name'], ['t1', 't2', 't3'])) && (isset($_POST['display']) && in_array($_POST['display'], ['0', '1']))) {
-    $display = (int) $_POST['display'];
+if (isset($_POST['name']) && (isset($_POST['display']) || isset($_POST['title']))) {
     $name = $_POST['name'];
-    $query = "UPDATE state SET display='$display' WHERE name='$name'";
+    if (isset($_POST['display'])) {
+        $display = (int) $_POST['display'];
+        $query = "UPDATE state SET display='$display' WHERE name='$name'";
+    } else if (isset($_POST['title'])) {
+        $title = $_POST['title'];
+        $query = "UPDATE state SET title='$title' WHERE name='$name'";
+    }
 
     // Execute update.
     $l = $db->query($query);

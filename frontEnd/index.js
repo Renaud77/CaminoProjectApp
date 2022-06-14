@@ -13,6 +13,7 @@ function displayCard() {
         for (const r of result) {
           display = r.display === "1" ? "block" : "none";
           document.querySelector("." + r.name).style.display = display;
+          document.querySelector("." + r.name + '_title').textContent = r.title;
         }
       }
     });
