@@ -1,8 +1,12 @@
 <?php
 
+/*
+ * Fichier réutilisable pour la connection à la base de donnée.
+ */
+
 $servername = 'localhost';
 $username = 'root';
-$password = 'root';
+$password = '';
 
 $db = new mysqli($servername, $username, $password);
 
