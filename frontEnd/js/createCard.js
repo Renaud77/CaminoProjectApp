@@ -71,31 +71,33 @@ function createCard(name, classes) {
   displayInput.setAttribute("id", `display-element-${name}`);
   displayInput.setAttribute("class", classes);
 
-  fetch('../php/select.php').then(function(response) {
-    return response.json();
-  }).then(function(data) {
-    if (data.status == '200') {
-      const result = data.result;
-      for (const r of result) {
-        if (r.display === '1') {
-          document.querySelector('.' + r.name).setAttribute('checked', 'checked');
+  fetch("php/select.php")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      if (data.status == "200") {
+        const result = data.result;
+        for (const r of result) {
+          if (r.display === "1") {
+            document
+              .querySelector("." + r.name)
+              .setAttribute("checked", "checked");
+          }
         }
       }
-    }
-  });
-
-
+    });
 
   // Ajout d'un écouteur d'événement sur la checkbox afin de pouvoir cacher ou afficher l'élément
   displayInput.addEventListener("click", (event) => {
     // On envoi l'info à la base de données du display du button.
     const input = event.target;
     const xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "../php/update.php", true);
+    xhttp.open("POST", "php/update.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     // Si la valeur est 1, alors on envoi 0 et inversement.
-    const display = input.checked === true ? '1' : '0';
+    const display = input.checked === true ? "1" : "0";
     xhttp.send("name=" + input.className + "&display=" + display);
   });
   /*

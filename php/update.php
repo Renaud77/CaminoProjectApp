@@ -2,7 +2,7 @@
 
 include './bdd.php';
 
-var_dump($_POST);
+
 if ((isset($_POST['name']) && in_array($_POST['name'], ['t1', 't2', 't3'])) && (isset($_POST['display']) && in_array($_POST['display'], ['0', '1']))) {
     $display = (int) $_POST['display'];
     $name = $_POST['name'];
