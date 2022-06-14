@@ -42,14 +42,22 @@ function createCard(name, classes) {
   titleModifier.classList.add("item-titre_input");
   titleModifier.setAttribute("type", "text");
   titleModifier.setAttribute("id", "title-input");
+  titleModifier.setAttribute("class", classes + '_title');
+  titleModifier.setAttribute("name", classes);
 
   // Ajout d'un écouteur d'événement sur le champ de texte afin de pouvoir envoyé le contenue du titre à chaque changement ou à l'appuis de la touche entrée
   titleModifier.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      // event.preventDefault();
-      return console.log(`onSubmit item[${name}]`, event.target.value);
+    const input = event.target;
+    if (event.key === "Enter" && input.value.length >= 3) {
+      const input = event.target;
+      const xhttp = new XMLHttpRequest();
+      xhttp.open("POST", "php/update.php", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+      // Si la valeur est 1, alors on envoi 0 et inversement.
+      const display = input.checked === true ? "1" : "0";
+      xhttp.send("name=" + input.getAttribute('name') + "&title=" + input.value);
     }
-    console.log(`onChange item[${name}]`, event.target.value);
   });
 
   const displayInputContainer = document.createElement("label");
@@ -79,6 +87,9 @@ function createCard(name, classes) {
       if (data.status == "200") {
         const result = data.result;
         for (const r of result) {
+          document
+              .querySelector("." + r.name + '_title')
+              .value = r.title;
           if (r.display === "1") {
             document
               .querySelector("." + r.name)
