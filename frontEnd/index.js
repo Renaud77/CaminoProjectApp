@@ -11,8 +11,11 @@ function displayCard() {
         const result = data.result;
         let display;
         for (const r of result) {
-          display = r.display === "1" ? "block" : "none";
-          document.querySelector("." + r.name).style.display = display;
+          if (r.display === "1") {
+            document.querySelector("." + r.name).classList.add("visible");
+          } else {
+            document.querySelector("." + r.name).classList.remove("visible");
+          }
           document.querySelector("." + r.name + "_title").textContent = r.title;
         }
       }

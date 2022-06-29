@@ -1,12 +1,6 @@
 @import "./reset.css";
 @import "./root.css";
 
-/* ANIMATION DES SECTIONS AU CHARGEMENT DE LA PAGE */
-@keyframes anim_opacity {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
 main {
   background-size: cover;
   background-repeat: cover;
@@ -20,13 +14,18 @@ main {
 }
 
 section {
+  opacity: 0;
+
   background-color: var(--primary-color);
   color: var(--second-color);
   width: fit-content;
   padding: 24px 36px;
 
-  animation-duration: 3s;
-  animation-name: anim_opacity;
+  transition: opacity 200ms ease-in;
+}
+
+section.visible {
+  opacity: 1;
 }
 
 section:nth-child(1) {
