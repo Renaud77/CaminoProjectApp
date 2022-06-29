@@ -11,7 +11,6 @@ function createCard(name, classes) {
 
   const section = document.createElement("section");
   section.classList.add("main-container_card");
-  section.classList.add("flex");
 
   const article = document.createElement("article");
   article.classList.add("card");
@@ -19,7 +18,6 @@ function createCard(name, classes) {
 
   const titleCard = document.createElement("div");
   titleCard.classList.add("card_item");
-  titleCard.classList.add("flex");
 
   const title = document.createElement("h1");
   title.classList.add("item_name");
@@ -67,17 +65,17 @@ function createCard(name, classes) {
   const titleDisplayInputContainer = document.createElement("p");
   titleDisplayInputContainer.textContent = `Afficher l'élément ${name}`;
 
-  const toggle = document.createElement("div");
-  toggle.classList.add("toggle");
-
-  const slider = document.createElement("div");
-  slider.classList.add("slider");
-
   const displayInput = document.createElement("input");
   displayInput.setAttribute("type", "checkbox");
   displayInput.setAttribute("name", "display-element");
   displayInput.setAttribute("id", `display-element-${name}`);
   displayInput.setAttribute("class", classes);
+
+  const toggle = document.createElement("div");
+  toggle.classList.add("toggle");
+
+  const slider = document.createElement("div");
+  slider.classList.add("slider");
 
   fetch("php/select.php")
     .then(function (response) {
@@ -120,8 +118,8 @@ function createCard(name, classes) {
 
   // Assemblage du composant de gestion de l'affichage du titre
   displayInputContainer.appendChild(titleDisplayInputContainer);
-  displayInputContainer.appendChild(toggle);
   displayInputContainer.appendChild(displayInput);
+  displayInputContainer.appendChild(toggle);
 
   // Assemblage du modificateur de titre
   titleInputContainer.appendChild(titleInput);
